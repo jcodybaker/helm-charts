@@ -10,6 +10,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: {{ template "prometheus-blackbox-exporter.fullname" . }}
+  namespace: {{ .Release.Namespace | quote }}
   labels:
     app.kubernetes.io/name: {{ include "prometheus-blackbox-exporter.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

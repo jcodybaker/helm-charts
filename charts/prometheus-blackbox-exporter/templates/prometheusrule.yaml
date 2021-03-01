@@ -3,6 +3,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   name: {{ template "prometheus-blackbox-exporter.fullname" . }}
+  namespace: {{ .Release.Namespace | quote }}
   {{- with .Values.prometheusRule.namespace }}
   namespace: {{ . }}
   {{- end }}
